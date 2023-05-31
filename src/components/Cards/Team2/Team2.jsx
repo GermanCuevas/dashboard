@@ -1,3 +1,20 @@
+import { useEffect, useState } from 'react';
+
 export const Team2 = () => {
-  return <div className="card">Team2</div>;
+  const [respuesta, setRespuesa] = useState(undefined);
+  useEffect(() => {
+    const llamada = async () => {
+      let response = await fetch('http://localhost:8080/api/greeting');
+      let data = await response.text();
+      setRespuesa(data);
+    };
+    llamada();
+  }, []);
+
+  return (
+    <div className="card">
+      <h1>Team2</h1>
+      <p>{respuesta}</p>
+    </div>
+  );
 };
