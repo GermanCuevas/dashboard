@@ -4,7 +4,7 @@ export const Team5 = () => {
   const [respuesta, setRespuesa] = useState(undefined);
   useEffect(() => {
     const llamada = async () => {
-      let response = await fetch('http://localhost:8080/api/greeting');
+      let response = await fetch('http://localhost:8080/api-5/greeting');
       let data = await response.text();
       setRespuesa(data);
     };
