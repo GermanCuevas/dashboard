@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Modal } from 'react-bootstrap';
 import { faSliders } from '@fortawesome/free-solid-svg-icons';
+import { Peliculas } from './Peliculas';
+import './team2.css';
 
 export const Team2 = () => {
   const [respuesta, setRespuesa] = useState(undefined);
@@ -33,26 +35,10 @@ export const Team2 = () => {
       {/* MODAL EDITABLE PARA CADA TEAM */}
       <Modal show={showSettingModal} onHide={handleCloseSettingModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Configuracion</Modal.Title>
+          <Modal.Title>Buscar Peliculas</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* Aqui van la interfaz front dependiendo de la funcionalidad, en caso de que necesiten ayuda con esta parte porfavor avisarme (German).*/}
-          <form className="my-form">
-            <div className="boxInput">
-              <label htmlFor="campo1">Campo 1</label>
-              <input type="text" id="campo1" />
-            </div>
-            <div className="boxInput">
-              <label htmlFor="campo2">Campo 2</label>
-              <input type="text" id="campo2" />
-            </div>
-            <div className="boxInput">
-              <label htmlFor="campo3">Campo 3</label>
-              <input type="text" id="campo3" />
-            </div>
-            <button>Enviar</button>
-          </form>
-          {/* Este form es solo para ejemplificar, como mencione, se puede cambiar dependediendo del proyecto */}
+          <Peliculas />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseSettingModal}>
