@@ -3,19 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Modal } from 'react-bootstrap';
 import { faSliders } from '@fortawesome/free-solid-svg-icons';
 import { Peliculas } from './Peliculas';
+import { SliderPeliculas } from './SliderPeliculas';
 import './team2.css';
 
 export const Team2 = () => {
-  const [respuesta, setRespuesa] = useState(undefined);
+  const [peliculas, setPeliculas] = useState([]);
   const [showSettingModal, setShowSettingModal] = useState(false);
   const handleShowSettingModal = () => setShowSettingModal(true);
   const handleCloseSettingModal = () => setShowSettingModal(false);
 
   useEffect(() => {
     const llamada = async () => {
-      let response = await fetch('http://localhost:8080/api/greeting');
+      let response = await fetch('http://localhost:8082/api2/movies/comingsoon/AR');
       let data = await response.text();
-      setRespuesa(data);
+      setPeliculas(JSON.parse(data));
     };
     llamada();
   }, []);
@@ -23,13 +24,13 @@ export const Team2 = () => {
   return (
     <>
       <div className="card">
+        <SliderPeliculas peliculas={peliculas} />
         <FontAwesomeIcon
           className="fw-bold fs-5 position-absolute"
           style={{ right: '2rem', cursor: 'pointer' }}
           icon={faSliders}
           onClick={handleShowSettingModal}
         ></FontAwesomeIcon>
-        <p>{respuesta}</p>
       </div>
 
       {/* MODAL EDITABLE PARA CADA TEAM */}

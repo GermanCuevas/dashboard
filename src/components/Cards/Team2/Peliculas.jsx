@@ -11,11 +11,11 @@ export const Peliculas = () => {
 
     const handleSearch = () => {
         setPeliculas([])
-        let response = fetch('http://localhost:8082/api2/movie/' + search);
+        let response = fetch('http://localhost:8082/api2/movies/search/' + search);
         response
             .then(data => {
                 data.json().then(obj => {
-                    setPeliculas(obj.movies);
+                    setPeliculas(obj);
                 })
 
             })
