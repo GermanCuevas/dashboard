@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 export const SliderPeliculas = ({ peliculas }) => {
     return (
         <div>
-            <Carousel controls={false}>
+            <Carousel controls={false} interval={3000}>
                 {
                     peliculas
                         .filter(peli => peli.imageURL)
